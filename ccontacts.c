@@ -24,7 +24,7 @@ typedef struct
 
 char* sexName(int sex)
 {
-    return sex == 1 ? "Male" : (sex == 2 ? "Female" : "None");
+    return sex == 1 ? "Male" : (item->sex == 2 ? "Female" : "None");
 }
 
 ContactList* createContactList(int capacity)
@@ -86,32 +86,39 @@ ContactItem* readContact(ContactItem* value)
 
     if (strlen(item->name) != 0) printf("Enter name (default: %s): ", item->name);
     else printf("Enter name: ");
-    if (scanf("%[^\n]%*c", input) > 0) strcpy(item->name, input);
+    scanf("%s", input);
+    if (strcmp(input, "") != 0) strcpy(item->name, input);
 
     if (strlen(item->family) != 0) printf("Enter family (default: %s): ", item->family);
     else printf("Enter family: ");
-    if (scanf("%[^\n]%*c", input) > 0) strcpy(item->family, input);
+    scanf("%s", input);
+    if (strcmp(input, "") != 0) strcpy(item->family, input);
 
     if (strlen(item->phone) != 0) printf("Enter phone (default: %s): ", item->phone);
     else printf("Enter phone: ");
-    if (scanf("%[^\n]%*c", input) > 0) strcpy(item->phone, input);
+    scanf("%s", input);
+    if (strcmp(input, "") != 0) strcpy(item->phone, input);
 
     if (strlen(item->email) != 0) printf("Enter email (default: %s): ", item->email);
     else printf("Enter email: ");
-    if (scanf("%[^\n]%*c", input) > 0) strcpy(item->email, input);
+    scanf("%s", input);
+    if (strcmp(input, "") != 0) strcpy(item->email, input);
 
     if (strlen(item->birthDate) != 0) printf("Enter birthDate (default: %s): ", item->birthDate);
     else printf("Enter birthDate: ");
-    if (scanf("%[^\n]%*c", input) > 0) strcpy(item->birthDate, input);
+    scanf("%s", input);
+    if (strcmp(input, "") != 0) strcpy(item->birthDate, input);
 
     if (item->age != 0) printf("Enter age (default: %d): ", item->age);
     else printf("Enter age: ");
-    if (scanf("%[^\n]%*c", input) > 0) item->age = atoi(input);
+    scanf("%s", input);
+    if (strcmp(input, "") != 0) item->age = atoi(input);
 
     if (item->sex != -1) printf("Enter sex (default: %s): ", sexName(item->sex));
     else printf("Enter sex: ");
     printf("1 for Male, 2 for Female ");
-    if (scanf("%[^\n]%*c", input) > 0) item->age = atoi(input);
+    scanf("%s", input);
+    if (strcmp(input, "") != 0) item->age = atoi(input);
 
     return item;
 }
@@ -218,7 +225,7 @@ int main(int argc, char** argv) {
         printf("4. Delete entry\n");
         printf("5. Exit\n\n");
         printf("Enter a choice: ");
-        scanf("%[^\n]%*c", input);
+        scanf("%s", input);
 
         int choice = atoi(input);
         switch (choice) {
@@ -240,7 +247,7 @@ int main(int argc, char** argv) {
 
             case 3: {
                 printf("Enter value of one of fields: ");
-                scanf("%[^\n]%*c", input);
+                scanf("%s", input);
                 ContactItem* item = searchContactList(list, input);
                 if (item != NULL) {
                     printContact(item);
@@ -256,7 +263,7 @@ int main(int argc, char** argv) {
 
             case 4: {
                 printf("Enter value of one of fields: ");
-                scanf("%[^\n]%*c", input);
+                scanf("%s", input);
                 ContactItem* item = searchContactList(list, input);
                 if (item != NULL) {
                     deleteContactList(list, item->hash);
