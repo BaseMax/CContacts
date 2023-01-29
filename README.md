@@ -36,4 +36,3 @@ $ ./CContacts
 ```
 
 Copyright (c) 2022, Max Base
-

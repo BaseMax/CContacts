@@ -2,29 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
-typedef struct
-{
-    char* hash;
-    char* name;
-    char* family;
-    char* phone;
-    char* email;
-    int age;
-    int sex; // 0 = Male, 1 = Female, -1 = none
-    char* birthDate;
-} ContactItem;
-
-typedef struct
-{
-    int size;
-    int capacity;
-    ContactItem** items;
-} ContactList;
+#include "CContacts.h"
 
 char* sexName(int sex)
 {
-    return sex == 1 ? "Male" : (item->sex == 2 ? "Female" : "None");
+    return sex == 1 ? "Male" : (sex == 2 ? "Female" : "None");
 }
 
 ContactList* createContactList(int capacity)
@@ -195,27 +177,26 @@ int main(int argc, char** argv) {
     char input[100];
     ContactList* list = createContactList(10);
 
-    ContactItem* item = createContact();
-    strcpy(item->name, "Ali");
-    strcpy(item->family, "Rezaei");
-    strcpy(item->phone, "09123456789");
-    strcpy(item->email, "max@asrez.com");
-    strcpy(item->birthDate, "1990/01/01");
-    item->sex = 1;
-    item->age = 22;
-    addContactList(list, item);
-
-    char s2[100] = "max@asrez.com";
-    item = searchContactList(list, s2);
-    if (item != NULL) {
-        printContact(item);
-        ContactItem* item = readContact(item);
-        if (item == NULL) printf("Error in entered new values!\n");
-        else {
-            updateContactList(list, item->hash, item);
-            printf("The selected contact updated.\n");
-        }
-    }
+    // ContactItem* item = createContact();
+    // strcpy(item->name, "Ali");
+    // strcpy(item->family, "Rezaei");
+    // strcpy(item->phone, "09123456789");
+    // strcpy(item->email, "max@asrez.com");
+    // strcpy(item->birthDate, "1990/01/01");
+    // item->sex = 1;
+    // item->age = 22;
+    // addContactList(list, item);
+    // char s2[100] = "max@asrez.com";
+    // item = searchContactList(list, s2);
+    // if (item != NULL) {
+    //     printContact(item);
+    //     ContactItem* item = readContact(item);
+    //     if (item == NULL) printf("Error in entered new values!\n");
+    //     else {
+    //         updateContactList(list, item->hash, item);
+    //         printf("The selected contact updated.\n");
+    //     }
+    // }
 
     while (1) {
         printf("Menu:\n");
