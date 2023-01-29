@@ -5,7 +5,7 @@ This is a simple contacts manager written in C with a simple CLI interface and a
 ## Structure
 
 Each contact has the following fields:
-- Hash
+- Hash (For HashMap)
 - Name
 - Family
 - Email
@@ -24,6 +24,7 @@ Each contact has the following fields:
 
 Soon:
 
+- Hash
 - Sort contacts by a field
 - Save contacts to a file
 - Load contacts from a file
